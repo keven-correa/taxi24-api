@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE "Trip" ALTER COLUMN "Completed" SET DEFAULT false,
+ALTER COLUMN "Rating" DROP NOT NULL;

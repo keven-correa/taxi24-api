@@ -1,0 +1,56 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+
+model Driver {
+  Id Int @default(autoincrement()) @id
+  Document String
+  Name String
+  LastName String
+  Age Int
+  Location String
+  Avaliable Boolean @default(true)
+  Trip Trip[]
+}
+
+model Passenger {
+  Id Int @id @default(autoincrement())
+  name String
+  LastName String
+  Age Int
+  Location String
+  Trip Trip[]
+}
+
+model Trip {
+  Id Int @id @default(autoincrement())
+  Address String
+  Duration Int
+  // DateStart DateTime 
+  // DateEnd DateTime
+  DistanceCoveredKm Float
+  Completed Boolean @default(false)
+  Rating Int
+  Active Boolean @default(true)
+  Invoice Invoice?
+  Driver Driver @relation(fields: [IdDriver], references: [Id])
+  IdDriver Int
+  Passenger Passenger @relation(fields: [IdPassenger], references: [Id])
+  IdPassenger Int
+}
+
+model Invoice {
+  Id Int @id @default(autoincrement())
+  Price Float
+  IdTrip Int @unique
+  Trip Trip @relation(fields: [IdTrip], references: [Id])
+}
