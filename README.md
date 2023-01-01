@@ -1,3 +1,9 @@
+<p align="center">
+  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
+</p>
+
+
+
 ## Proyecto: Taxi24
 ## Tecnologias que se utilizaron para este proyecto
 - [NestJS](https://nestjs.com)
