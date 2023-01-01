@@ -8,20 +8,20 @@ export class Distance{
     constructor(private prisma: PrismaService){}
     
     async getAllAvailableDriversNearby(location: string, counter?: number){
-        const radio = 3;
+        const ratio = 3;
         let nearbyDrivers: Driver[] = [];         
 
-        const latitudP = parseFloat(location.split(',')[0]);
-        const longitudP = parseFloat(location.split(',')[1]);
+        const latitudeP = parseFloat(location.split(',')[0]);
+        const longitudeP = parseFloat(location.split(',')[1]);
         
         const driversLocations = (await this.prisma.driver.findMany())
                                             .filter(x => x.Avaliable == true)
                                             .map(x => x.Location);
 
         for(let i=0; i<driversLocations.length; i++){
-            const latitudC = parseFloat(driversLocations[i].split(',')[0]);
-            const longitudC = parseFloat(driversLocations[i].split(',')[1]); 
-            const distance = this.calculateKms(latitudP, longitudP, latitudC, longitudC);
+            const latitudeC = parseFloat(driversLocations[i].split(',')[0]);
+            const longitudeC = parseFloat(driversLocations[i].split(',')[1]); 
+            const distance = this.calculateKms(latitudeP, longitudeP, latitudeC, longitudeC);
 
             const conductor = await this.prisma.driver.findFirst({
                     where: {
@@ -30,7 +30,7 @@ export class Distance{
                 }
             )
 
-            if (distance <= radio){
+            if (distance <= ratio){
                 if (conductor)
                     nearbyDrivers.push(conductor);
             }

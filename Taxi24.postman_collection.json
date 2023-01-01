@@ -38,7 +38,7 @@
 					"response": []
 				},
 				{
-					"name": "update driver data",
+					"name": "get driver by id",
 					"request": {
 						"method": "PATCH",
 						"header": [],
@@ -67,7 +67,7 @@
 					"response": []
 				},
 				{
-					"name": "get all drivers",
+					"name": "get avaliable drivers",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -84,21 +84,23 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/drivers",
+							"raw": "http://localhost:3000/drivers/get-all-avaliable-drivers/",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "3000",
 							"path": [
-								"drivers"
+								"drivers",
+								"get-all-avaliable-drivers",
+								""
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "get avaliable drivers",
+					"name": "get all drivers",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -168,63 +170,6 @@
 		{
 			"name": "Passengers",
 			"item": [
-				{
-					"name": "create passenger",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Oscar\",\r\n    \"LastName\": \"Matos\",\r\n    \"Age\": 37,\r\n    \"Location\": \"18.487103249399265, -69.98229864608018\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:3000/passengers",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"passengers"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "update driver data",
-					"request": {
-						"method": "PATCH",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Marino\",\r\n    \"lastName\": \"Suarez\",\r\n    \"age\": \"28\",\r\n    \"document\": \"00111223450\",\r\n    \"licencePlate\": \"A871704\",\r\n    \"phone\": \"8490000000\",\r\n    \"location\": \"18.485623519978517, -69.95788105005747\",\r\n    \"status\": \"Inactive\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:3000/drivers/e160d2ba-2247-44c7-9529-0ba3437b4e5e",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"drivers",
-								"e160d2ba-2247-44c7-9529-0ba3437b4e5e"
-							]
-						}
-					},
-					"response": []
-				},
 				{
 					"name": "get passenger by id",
 					"protocolProfileBehavior": {

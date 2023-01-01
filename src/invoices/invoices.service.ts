@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { Driver, Passenger, Trip } from '@prisma/client';
+import { Trip } from '@prisma/client';
 import { PrismaService } from 'src/prisma/prisma.service';
 
 
@@ -19,41 +19,10 @@ export class InvoicesService {
         "Price": finalPrice
       }
     });
-    // return this.generateInvoiceOfTrip(passenger, driver, trip, finalPrice)
   }
 
-  private generateInvoiceOfTrip(passenger: Passenger, driver: Driver, trip: Trip, price: number){
-    return {
-      "Invoice": {
-        "Total": price + "$",
-        "Date":  Date.now(),
-        "To": trip.Address,
-        "Duration": trip.Duration,
-        "Distance": trip.DistanceCoveredKm,
-        "Passenger": {
-          "Name": passenger.name,
-          "Last Name": passenger.LastName
-        },
-        "Driver": {
-          "Name": driver.Name,
-          "Last Name": driver.LastName
-        }
-      }
-    }
-  }
   async findAll() {
     return this.prisma.invoice.findMany();
   }
 
-  // findOne(id: number) {
-  //   return `This action returns a #${id} invoice`;
-  // }
-
-  // update(id: number, updateInvoiceDto: UpdateInvoiceDto) {
-  //   return `This action updates a #${id} invoice`;
-  // }
-
-  // remove(id: number) {
-  //   return `This action removes a #${id} invoice`;
-  // }
 }

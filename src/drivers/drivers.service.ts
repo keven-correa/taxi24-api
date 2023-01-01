@@ -25,7 +25,7 @@ export class DriversService {
   }
 
   async findNearby(location: string){
-    return await this.distance.getAllAvailableDriversNearby(location);
+    return await this.distance.getAllAvailableDriversNearby(location, 3);
   }
 
   async findOne(id: number) {

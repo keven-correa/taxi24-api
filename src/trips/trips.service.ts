@@ -15,7 +15,11 @@ export class TripsService {
   ) {}
   async createTripRequest(createTripDto: CreateTripDto) {
 
-    await this.prisma.trip.create({data: createTripDto})
+    try {
+      await this.prisma.trip.create({data: createTripDto})
+    } catch (error) {
+      console.log(error)
+    }
     
   }
 
@@ -23,44 +27,13 @@ export class TripsService {
    return await this.prisma.trip.findMany({where: {Active: true}});
   }
 
-  // findOne(id: number) {
-  //   return `This action returns a #${id} trip`;
-  // }
-
   async completeTrip(id: number, updateTripDto: UpdateTripDto) {
      const complete = await this.prisma.trip.update({
       where: {Id: id},
       data: updateTripDto
     })
-
-    const get = await this.prisma.trip.findFirst({where: {Id: id}})
-
-    return this.ivoiceService.create(get);
+    const generateInvoice = await this.prisma.trip.findFirst({where: {Id: complete.Id}})
+    
+    return this.ivoiceService.create(generateInvoice);
   }
-
-  remove(id: number) {
-    return `This action removes a #${id} trip`;
-  }
-
-  // private tripData(passenger: Passenger, driver: Driver, location: string){
-  //   const trip = {
-  //     Adrress: location,
-  //     DateStart: new Date().toISOString(),
-  //     DateEnd: new Date('0001-01-01'),
-  //     Duration: 0,
-  //     DistanceCoveredKm: 0,
-  //     Completed: false,
-  //     Active: true,
-  //     Rating: 0,
-  //     IdDriver: driver.Id,
-  //     IdPassenger: passenger.Id
-  //   }
-  //   return trip;
-  // }
-  // private async UpdateAvaliabilityOfDriver(driver: Driver, avaliable: boolean){
-  //   await this.prisma.driver.update({
-  //     where: {Id: driver.Id},
-  //     data: {'Avaliable': avaliable}
-  //   })
-  // }
 }
