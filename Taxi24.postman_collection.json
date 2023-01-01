@@ -1,0 +1,415 @@
+{
+	"info": {
+		"_postman_id": "90342a2a-a1f2-4238-922d-3a99a1f2f02f",
+		"name": "Taxi24",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12474199"
+	},
+	"item": [
+		{
+			"name": "Drivers",
+			"item": [
+				{
+					"name": "create driver",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"Name\": \"Braulio\",\r\n        \"LastName\": \"Jimenez\",\r\n        \"Age\": 34,\r\n        \"Document\": \"40212745800\",\r\n        \"Location\": \"18.48917422309984, -69.97621634646742\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/drivers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"drivers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update driver data",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Marino\",\r\n    \"lastName\": \"Suarez\",\r\n    \"age\": \"28\",\r\n    \"document\": \"00111223450\",\r\n    \"licencePlate\": \"A871704\",\r\n    \"phone\": \"8490000000\",\r\n    \"location\": \"18.485623519978517, -69.95788105005747\",\r\n    \"status\": \"Active\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/drivers/e160d2ba-2247-44c7-9529-0ba3437b4e5e",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"drivers",
+								"e160d2ba-2247-44c7-9529-0ba3437b4e5e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all drivers",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Jhon\",\r\n    \"lastName\": \"Gomez Jimenez\",\r\n    \"age\": \"27\",\r\n    \"document\": \"00111223450\",\r\n    \"licencePlate\": \"A231010\",\r\n    \"phone\": \"8490000000\",\r\n    \"location\": \"18.483671895753705, -69.99428337323832\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/drivers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"drivers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get avaliable drivers",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Jhon\",\r\n    \"lastName\": \"Gomez Jimenez\",\r\n    \"age\": \"27\",\r\n    \"document\": \"00111223450\",\r\n    \"licencePlate\": \"A231010\",\r\n    \"phone\": \"8490000000\",\r\n    \"location\": \"18.483671895753705, -69.99428337323832\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/drivers/get-all-avaliable-drivers/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"drivers",
+								"get-all-avaliable-drivers",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get nearby avaliable drivers",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"location\": \"18.487103249399265,-69.98229864608018\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/drivers/get-all-nearby-drivers/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"drivers",
+								"get-all-nearby-drivers",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Passengers",
+			"item": [
+				{
+					"name": "create passenger",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Oscar\",\r\n    \"LastName\": \"Matos\",\r\n    \"Age\": 37,\r\n    \"Location\": \"18.487103249399265, -69.98229864608018\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/passengers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"passengers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update driver data",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Marino\",\r\n    \"lastName\": \"Suarez\",\r\n    \"age\": \"28\",\r\n    \"document\": \"00111223450\",\r\n    \"licencePlate\": \"A871704\",\r\n    \"phone\": \"8490000000\",\r\n    \"location\": \"18.485623519978517, -69.95788105005747\",\r\n    \"status\": \"Inactive\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/drivers/e160d2ba-2247-44c7-9529-0ba3437b4e5e",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"drivers",
+								"e160d2ba-2247-44c7-9529-0ba3437b4e5e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get passenger by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Jhon\",\r\n    \"lastName\": \"Gomez Jimenez\",\r\n    \"age\": \"27\",\r\n    \"document\": \"00111223450\",\r\n    \"licencePlate\": \"A231010\",\r\n    \"phone\": \"8490000000\",\r\n    \"location\": \"18.483671895753705, -69.99428337323832\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/drivers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"drivers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all passengers",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Jhon\",\r\n    \"lastName\": \"Gomez Jimenez\",\r\n    \"age\": \"27\",\r\n    \"document\": \"00111223450\",\r\n    \"licencePlate\": \"A231010\",\r\n    \"phone\": \"8490000000\",\r\n    \"location\": \"18.483671895753705, -69.99428337323832\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/drivers/get-avaliable-drivers/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"drivers",
+								"get-avaliable-drivers",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get nearby avaliable drivers",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"location\": \"18.483671895753705, -69.99428337323832\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/passengers/get-nearby-drivers/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"passengers",
+								"get-nearby-drivers",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Trip",
+			"item": [
+				{
+					"name": "create trip request",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/passengers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"passengers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get active trips",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/passengers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"passengers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "complete trip",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/trips/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"trips",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Invoices",
+			"item": [
+				{
+					"name": "get all generated invoices",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/invoices",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"invoices"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
